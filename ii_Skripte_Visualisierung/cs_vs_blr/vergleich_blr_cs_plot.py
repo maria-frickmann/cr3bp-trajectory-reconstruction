@@ -44,10 +44,10 @@ ax.axhline(rho, color='0.35', linestyle='dashed', linewidth=1.1,
 
 ax.plot(cs_kurve['alpha'], cs_kurve['korr_avg'], marker='o', markersize=4,
         linewidth=1.4, color=farbe_cs,
-        label=r'$\mathrm{corr}^{\mathrm{CS}}$')
+        label=r'$\mathrm{r}^{\mathrm{CS}}$')
 ax.plot(blr_kurve['alpha'], blr_kurve['korr_avg'], marker='s', markersize=4,
         linewidth=1.4, color=farbe_blr,
-        label=r'$\mathrm{corr}^{\mathrm{BLR}}$')
+        label=r'$\mathrm{r}^{\mathrm{BLR}}$')
 
 if cs_kurve['alpha_min_cs'] is not None:
     ax.axvline(cs_kurve['alpha_min_cs'], color=farbe_cs, linestyle='-.', linewidth=1.2,

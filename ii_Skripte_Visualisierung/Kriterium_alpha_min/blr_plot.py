@@ -27,7 +27,7 @@ for rauschen, farbe, label_rauschen in zip(meta['rauschen_liste'],
                                            farben_rauschen, labels_rauschen):
     kurve = kurven[float(rauschen)]
     ax.plot(kurve['alpha'], kurve['korr_avg'], marker='o', markersize=4,linewidth=1.4, color=farbe,
-            label=r'$\mathrm{corr}^{\mathrm{BLR}}$ 'f'Rauschen {label_rauschen}')
+            label=r'$\mathrm{r}^{\mathrm{BLR}}$ 'f'Rauschen {label_rauschen}')
     if kurve['alpha_min_blr'] is not None:
         ax.axvline(kurve['alpha_min_blr'], color=farbe, linestyle='-.', linewidth=1.2,
                    label=None if alpha_min_beschriftet else r'$\alpha_{\min}^{\mathrm{BLR}}$')

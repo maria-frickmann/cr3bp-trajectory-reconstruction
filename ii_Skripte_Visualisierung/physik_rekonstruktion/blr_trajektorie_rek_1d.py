@@ -32,7 +32,7 @@ ax_zeit.plot(np.arange(N), q1_ref, color=SCHWARZ, lw=1.5, label=LABEL_REFERENZ, 
 for rauschen, farbe, label_r in vorhanden:
     rek = rekonstruktionen[rauschen]
     ax_zeit.plot(np.arange(N), rek['q1_rek'], color=farbe, lw=1.2, ls='--', alpha=0.9,
-                 label=f'{label_r} ($\\delta_{{\\mathrm{{total}}}}='
+                 label=f'{label_r} ($Δ_{{\\mathrm{{total}}}}='
                        f'{rek["delta_total"]:.4f}$)')
 
 ax_zeit.set_ylim(*grenzen_q1)

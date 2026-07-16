@@ -26,7 +26,7 @@ alpha_min_beschriftet = False
 for rauschen, farbe, label_rauschen in zip(meta['rauschen_liste'], farben_rauschen, labels_rauschen):
     kurve = kurven[float(rauschen)]
     ax.plot(kurve['alpha'], kurve['korr_avg'], marker='o', markersize=4, linewidth=1.4, color=farbe,
-        label=r'$\mathrm{corr}^{\mathrm{CS}}$' f'Rauschen {label_rauschen}')
+        label=r'$\mathrm{r}^{\mathrm{CS}}$' f'Rauschen {label_rauschen}')
     if kurve['alpha_min_cs'] is not None:
         ax.axvline(kurve['alpha_min_cs'], color=farbe, linestyle='-.', linewidth=1.2,
             label=None if alpha_min_beschriftet 
