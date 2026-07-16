@@ -1,0 +1,56 @@
+% Graph ist auf den Seiten sehr flach
+
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\pgfmathsetmacro{\muVal}{0.9}   % Massenverhältnis
+\pgfmathsetmacro{\mmu}{1-\muVal}
+\pgfmathsetmacro{\mx}{-\mmu}
+\pgfmathsetmacro{\ex}{\muVal}
+\pgfmathsetmacro{\pOne}{0}
+\pgfmathsetmacro{\pTwo}{0}
+
+\begin{document}
+\begin{tikzpicture}[
+    line cap=round,
+    line join=round,
+    >=triangle 45,
+    x=1cm, y=1cm,
+]
+\begin{axis}[
+    declare function={
+        r1(\x,\y) = sqrt((\y-\mx)^2 + \x^2 + 0.00001);
+        r2(\x,\y) = sqrt((\y-\ex)^2 + \x^2 + 0.00001);
+        V(\x,\y)  = -\muVal/r1(\x,\y) - \mmu/r2(\x,\y);
+        H(\x,\y)  = 0.5*((\pOne - \x)^2 + (\pTwo + \y)^2)
+                    + V(\x,\y) - 0.5*(\y^2 + \x^2); 
+    },
+    width=8cm,
+    height=6cm,
+    view={135}{30},
+    axis lines=center,
+    ticks=none,
+    xlabel=$x_1$,
+    ylabel=$x_2$,
+    zlabel={$f(x_1,x_2)$},
+    xlabel style={above left},
+    ylabel style={above right},
+    zlabel style={above},
+]
+% Hauptfläche, geht von der Mitte aus
+    \addplot3[
+        surf, 
+        domain=-2:2, 
+        domain y=-2:2, 
+        zmin=-4, zmax=2,
+        samples=30,
+        samples y=30,
+        opacity=0.6,
+    ] {H(x,y)};
+
+
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

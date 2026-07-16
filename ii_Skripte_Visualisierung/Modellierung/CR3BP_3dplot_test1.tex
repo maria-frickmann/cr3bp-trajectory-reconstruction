@@ -1,0 +1,54 @@
+
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\pgfmathsetmacro{\muVal}{0.2}       % Massenverhältnis mu (illustrativ)
+\pgfmathsetmacro{\mmu}{1-\muVal}    % 1 - mu
+\pgfmathsetmacro{\qStern}{-\muVal}  % Position Stern  auf der q1-Achse
+\pgfmathsetmacro{\qPlanet}{\mmu}    % Position Planet auf der q1-Achse
+\pgfmathsetmacro{\pOne}{0}          % p1 (Schnitt)
+\pgfmathsetmacro{\pTwo}{0}          % p2 (Schnitt)
+
+\begin{document}
+\begin{tikzpicture}[
+    line cap=round,
+    line join=round,
+    >=triangle 45,
+    x=1cm, y=1cm,
+]
+\begin{axis}[
+    declare function={
+        % \x = q1, \y = q2, Schnitt q3 = 0; +1e-5 regularisiert die Singularitäten
+        rS(\x,\y) = sqrt((\x + \muVal)^2  + \y^2 + 0.00001);
+        rP(\x,\y) = sqrt((\x - \mmu)^2    + \y^2 + 0.00001);
+        V(\x,\y)  = -\mmu/rS(\x,\y) - \muVal/rP(\x,\y) - 0.5*(\x^2 + \y^2);
+        H(\x,\y)  = 0.5*((\pOne - \y)^2 + (\pTwo + \x)^2) + V(\x,\y);
+    },
+    width=8cm,
+    height=6cm,
+    view={135}{30},
+    axis lines=center,
+    ticks=none,
+    xlabel=$q_1$,
+    ylabel=$q_2$,
+    zlabel={$H(q_1,q_2)$},
+    xlabel style={above left},
+    ylabel style={above right},
+    zlabel style={above},
+    zmin=-4, zmax=2,
+]
+% Fläche
+    \addplot3[
+        surf,
+        domain=-2:2,
+        domain y=-2:2,
+        samples=30,
+        samples y=30,
+        restrict z to domain=-4:2,
+        opacity=0.6,
+    ] {H(x,y)};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}
