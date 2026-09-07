@@ -1,0 +1,9 @@
+WEISS   = '#FFFFFF'
+SONNE   = '#f0a800'
+ERDE    = '#0084f0'
+SCHWARZ = '#000000'
+ORBIT   = '#ff4e4e'
+LINIEN  = "#eaa0e567"
+tj_stabil_farbe = "#568FB8"
+tj_instabil_farbe = "#9256B5"
+tj_optimal_farbe = "#0011D2"

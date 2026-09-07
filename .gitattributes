@@ -1,0 +1,12 @@
+# Textdateien werden erkannt und im Repository auf LF normalisiert.
+* text=auto
+
+# Python-Quelltext ist immer Text.
+*.py   text diff=python
+*.toml text
+*.md   text
+
+# Erzeugte Diagramme sind Binaerdateien und duerfen nicht veraendert werden.
+*.pdf  binary
+*.png  binary
+*.jpg  binary

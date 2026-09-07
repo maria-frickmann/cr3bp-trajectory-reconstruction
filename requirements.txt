@@ -1,0 +1,8 @@
+# Getestet mit Python 3.13; die untere Schranke ist jeweils die Version,
+# ab der die verwendeten Schnittstellen unveraendert sind.
+numpy>=1.26
+scipy>=1.11
+matplotlib>=3.8
+cvxpy>=1.4
+sympy>=1.12
+joblib>=1.3
