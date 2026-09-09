@@ -41,7 +41,6 @@ draw_hintergrund_3d(ax, xlim=xlim, ylim=ylim, zlim=zlim)
 ax.set_xlim(xlim); ax.set_ylim(ylim); ax.set_zlim(zlim)
 ax.view_init(elev=12, azim=-125)
 
-# Beschriftung des blauen Punktes (Erde)
 mu   = meta.get('mu', 0.012150585609624)
 erde = (-mu, 0.0, 0.0)
 ax.text(erde[0], erde[1], erde[2] + 0.03 * (zlim[1] - zlim[0]), 'Erde',

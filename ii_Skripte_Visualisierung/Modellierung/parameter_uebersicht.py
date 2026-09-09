@@ -7,7 +7,7 @@ ziel_ordner = my_path / "iii_Daten_Plots" / "Modellierung"
 speicher_pfad = ziel_ordner / my_file
 ziel_ordner.mkdir(parents=True, exist_ok=True)
 import matplotlib.pyplot as plt
-from i_Programmierung.Konstanten import N_WDH, RHO, w, startwert_zufall, delta
+from i_Programmierung.Konstanten import N_WDH, RHO, w, startwert_zufall, delta, KAPPA
 from ii_Skripte_Visualisierung.farben import SCHWARZ
 from ii_Skripte_Visualisierung.farben import *
 sys.path.append(str(Path(__file__).resolve().parents[1]))
@@ -21,7 +21,8 @@ parameter = [
     (r"$N_{\mathrm{WDH}}$", N_WDH),
     (r"$\rho$", RHO),
     (r"$w$", w),
-    (r"$\delta$", delta)
+    (r"$\delta$", delta),
+    (r"$\kappa$", KAPPA)
 ]
 
 def _fmt(x, spezifikation):

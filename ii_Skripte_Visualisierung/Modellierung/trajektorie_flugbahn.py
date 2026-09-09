@@ -50,11 +50,15 @@ ax.plot(q1_opt, q2_opt, q3_opt,
 
 # Erde
 dx = 0.03 * (xlim[1] - xlim[0])
-ax.scatter(*pos_erde, color=ERDE, s=60, zorder=12, depthshade=False)
+ax.scatter(-mu, 0, 0, color=ERDE, s=60, zorder=12, depthshade=False)
+ax.text(-mu - dx, 0, 0, 'Erde', fontsize=fontsize, color=ERDE,
+        ha='right', va='center', zorder=13)
 
 # Beschriftung des blauen Punktes (Erde)
-ax.text(*pos_erde + 0.03 * (zlim[1] - zlim[0]), 'Erde',
-        fontsize=fontsize, color=SCHWARZ, ha='center', va='bottom', zorder=7)
+dx = 0.03 * (xlim[1] - xlim[0])
+ax.scatter(-mu, 0, 0, color=ERDE, s=60, zorder=12, depthshade=False)
+ax.text(q1_opt[0] - dx, q2_opt[0], q3_opt[0], 'Erde', fontsize=fontsize, color=ERDE, ha='right', va='center', zorder=13)
+
 
 Axenbeschriftung(ax)
 ax.xaxis.labelpad = 12

@@ -42,7 +42,6 @@ for rauschen, farbe, label_r in vorhanden:
     ax.plot(rek['q1_rek'], q2_ref, q3_ref, color=farbe, lw=1.3, ls='--',
             label=rf'{label_r} (${SYM_ALPHA_MIN_BLR} = {rek["alpha_min_blr"]:.3f}$)', zorder=5)
 
-# Erde
 dx = 0.03 * (xlim[1] - xlim[0])
 ax.scatter(-mu, 0, 0, color=ERDE, s=60, zorder=12, depthshade=False)
 ax.text(-mu - dx, 0, 0, 'Erde', fontsize=fontsize, color=ERDE,
@@ -56,7 +55,6 @@ ax.tick_params(axis='z', pad=6)
 ax.zaxis.set_rotate_label(False)
 ax.zaxis.label.set_rotation(90)
 
-# Erde
 dx = 0.03 * (xlim[1] - xlim[0])
 ax.scatter(-mu, 0, 0, color=ERDE, s=60, zorder=12, depthshade=False)
 ax.text(q1_opt[0] - dx, q2_opt[0], q3_opt[0], 'Erde', fontsize=fontsize, color=ERDE, ha='right', va='center', zorder=13)
